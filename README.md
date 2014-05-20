@@ -1,22 +1,30 @@
-# git-parse-human
+# git-parse-human2
 
-parse author and committer names from git commit data.
+Parse author and committer names from git commit data.
 
 ```javascript
-var human = require('git-parse-human')
-  , committer = 'Chris Dickinson <christopher.s.dickinson@gmail.com> 1363906748 -0700'
+var human = require('git-parse-human2');
+var committer = 'Chris Dickinson <christopher.s.dickinson@gmail.com> 1363906748 -0700';
 
-human(committer) // {name, email, time, tzoff}
-
+console.log(human(committer));
+// outputs the following:
+/*
+{
+  name: 'Chris Dickinson',
+  email: 'christopher.s.dickinson@gmail.com',
+  timestamp: 1363906748,
+  timezone: '-0700'
+}
+*/
 ```
 
 ## API
 
 #### human(str) -> result object | null
 
-parse a human, returning an object with their name,
-their email, the commit timestamp in MS and the commit
-timezone offset in MS.
+Parse a human, returning an object with their name,
+their email, the commit timestamp in seconds and the commit
+timezone offset.
 
 ## License
 
